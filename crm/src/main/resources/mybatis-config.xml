@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <package name="com.xiangyang.crm.settings.domain"/>
+    </typeAliases>
+    <properties resource="db.properties"/>
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+    <environments default="myDevelop">
+        <environment id="myDevelop">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <!--数据库驱动类名-->
+                <property name="driver" value="${jdbc.driver}"/>
+                <!--数据库访问的url地址-->
+                <property name="url" value="${jdbc.url}"/>
+                <!--数据库访问的用户名-->
+                <property name="username" value="${jdbc.username}"/>
+                <!--数据库访问的密码-->
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--sql映射文件的位置(sql mapper)-->
+    <mappers>
+        <!--
+            一个标签指定一个文件位置
+            类路径开始的路径信息
+        -->
+        <package name="com.xiangyang.crm.settings.dao"/>
+    </mappers>
+</configuration>
